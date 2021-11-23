@@ -98,12 +98,8 @@ BEGIN
 END;
 
 BEGIN
-   NEW_PASSENGER_PRO('A1234568','LH9876','SAKSHAM','KAUSHAL', '45-sector-28-HIMACHAL',1234563121,'M','N','N','','FIRST-CLASS','B021',12347);
+   NEW_PASSENGER_PRO('A1234568','LH9876','AKSHAT','SHARMA', '7720 MCCALLUM BLVD, APT 1082, DALLAS, TX',9080367266,'M','N','N','','Economy','a023',15000);
 END;
-
-
---SINGULAR TRY
-INSERT INTO PASSENGER_DATA ("PASSENGER_ID","PASSPORT_NUMBER","FLIGHT_CODE") VALUES (PASSENGER_ID_SEQ.nextval, 'A1234568','AI2014');
 
 
 ----------------------------------------------------------------------------------
@@ -135,7 +131,7 @@ END;
 /;
 
 BEGIN
-   NEW_EMPLOYEE_PRO('SDF','125','carl','lewis',0123456795,26,'M','7820 MCCALLUM COURTS, APT 234, AKRON, OH');
+   NEW_EMPLOYEE_PRO('SDF','118','Pratham','arora',5345679512,27,'M','731 Fondren, Houston, TX');
 END;
 
 ----------------------------------------------------------------
@@ -198,3 +194,36 @@ BEGIN
 END;
 END;
 
+-----------------------------------------------------------
+create or replace procedure "REM_PASSENGER_PRO"
+(p_passenger_id IN NUMBER,
+p_ticket_number IN NUMBER)
+is
+begin
+BEGIN
+    DELETE FROM PASSENGER_DATA WHERE PASSENGER_ID=p_passenger_id;
+    COMMIT;
+    
+    DELETE FROM PASSENGER_DETAILS WHERE PASSENGER_ID=p_passenger_id;
+    COMMIT;
+    
+    DELETE FROM TICKET WHERE PASSENGER_ID=p_passenger_id;
+    COMMIT;
+    
+    DELETE FROM TICKET WHERE TICKET_NUMBER=p_ticket_number;
+    COMMIT;
+END;
+end;
+/   
+
+
+-- EXAMPLE RUN
+BEGIN
+   REM_PASSENGER_PRO(10,123);
+END;
+
+    create or replace procedure "fol"
+    BEGIN
+        dbms_output.put_line('helo');
+    END;
+    /
