@@ -54,21 +54,6 @@ p_price IN NUMBER)
 is
 BEGIN
 
--- DBMS_OUTPUT.PUT_LINE('Enter the data in following way');
--- DBMS_OUTPUT.PUT_LINE('
--- Passport Number,
--- Flight Code IN VARCHAR2,
--- First Name,
--- Last Name,
--- Home Address,
--- Phone Number,
--- Gender,
--- frequent flyer discount,
--- employee discount (If passenger if a employee),
--- Employee id (If passenger if a employee),
--- Class,
--- Seat,
--- Price');
 
 INSERT INTO PASSENGER_DATA ("PASSENGER_ID","PASSPORT_NUMBER","FLIGHT_CODE") VALUES 
 (PASSENGER_ID_SEQ.nextval, passport_number,flight_code);
