@@ -201,14 +201,44 @@ END;
 end;
 /   
 
-
+create or replace procedure "DISPLAY_ALL_DATA_pro"
+is
+BEGIN
+    select * from AIRLINE;
+    select * from AIRPORT;
+    select * from CABIN_DATA;
+    select * from CITY;
+    select * from DEPARTMENT_DETAILS;
+    select * from DOCKED_AIRLINE;
+    select * from EMPLOYEE;
+    select * from EMPLOYEE_DETAIL;
+    select * from FLIGHT_DATA;
+    select * from PASSENGER_DATA;
+    select * from PASSENGER_DETAILS;
+    select * from TICKET;
+    select * from TICKET_DATA;
+    SELECT * INTO AVAIL_ECO_SEATS FROM CABIN_DATA WHERE FLIGHT_CODE = p_flight_code;
+END;
+/
 -- EXAMPLE RUN
 BEGIN
    REM_PASSENGER_PRO(10,123);
 END;
 
-    create or replace procedure "fol"
-    BEGIN
-        dbms_output.put_line('helo');
-    END;
-    /
+
+
+
+select * from tab
+select * from AIRLINE
+select * from AIRPORT
+select * from CABIN_DATA
+select * from CITY
+select * from DEPARTMENT_DETAILS
+select * from DOCKED_AIRLINE
+select * from EMPLOYEE
+select * from EMPLOYEE_DETAIL
+select * from FLIGHT_DATA
+select * from PASSENGER_DATA
+select * from PASSENGER_DETAILS
+select * from TICKET
+select * from TICKET_DATA
